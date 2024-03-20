@@ -1,0 +1,12 @@
+import string
+
+LETTERS_DIGITS = string.ascii_letters + string.digits
+
+REDIRECT_URL = 'redirect_view'
+
+MAX_ORIGINAL_SIZE = 2048
+MAX_GENERATED_SHORT = 6
+MAX_USER_SHORT = 16
+MAX_GENERATE_REPETITIONS = 10
+
+SHORT_REGEX = rf'^[{LETTERS_DIGITS}]*$'
