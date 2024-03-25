@@ -1,6 +1,4 @@
-from http import HTTPStatus
-
-from flask import abort, flash, redirect, render_template, url_for
+from flask import flash, redirect, render_template, url_for
 
 from . import app
 from .constants import REDIRECT_URL
@@ -33,7 +31,5 @@ def index_view():
 
 @app.route('/<string:short>')
 def redirect_view(short):
-    url_map = URLMap.get(short)
-    if url_map is None:
-        abort(HTTPStatus.NOT_FOUND)
+    url_map = URLMap.query.filter_by(short=short).first_or_404()
     return redirect(url_map.original)

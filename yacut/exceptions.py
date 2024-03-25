@@ -15,4 +15,5 @@ class InvalidAPIRequest(Exception):
             self.status_code = status_code
 
     def to_dict(self):
-        return dict(message=self.message)
+        dict_simple = {'message': self.message, }
+        return dict_simple
